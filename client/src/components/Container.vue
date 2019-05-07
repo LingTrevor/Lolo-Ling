@@ -10,6 +10,6 @@
   width: 100%;
   padding: 20px;
   background-color: $color-container-bg;
-  height: 100%;
+  min-height: 100%;
 }
 </style>
