@@ -67,7 +67,7 @@ export default {
   },
   methods: {
     async getFeedItems() {
-      await axios.get(`http://localhost:5005/feed/all`).then(response => {
+      await axios.get(`/feed/all`).then(response => {
         this.feedItems = response.data;
       });
     },
@@ -76,13 +76,11 @@ export default {
       return dateObj;
     },
     async parseFeedItem(item) {
-      await axios
-        .post(`http://localhost:5005/feed/parse`, { item })
-        .then(response => {
-          this.isOpen = true;
-          this.parsedItem = response.data;
-          //   console.log(this.parsedItem);
-        });
+      await axios.post(`/feed/parse`, { item }).then(response => {
+        this.isOpen = true;
+        this.parsedItem = response.data;
+        //   console.log(this.parsedItem);
+      });
     },
 
     //https://stackoverflow.com/questions/822452/strip-html-from-text-javascript
