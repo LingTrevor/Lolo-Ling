@@ -1,7 +1,7 @@
 <template>
   <header>
     <nav class="nav">
-      <h1>Lolo Website</h1>
+      <h1>Lolo</h1>
     </nav>
   </header>
 </template>
