@@ -3,16 +3,16 @@
     <FeedContainer v-if="feedItems">
       <div class="card" v-for="(item, index) in feedItems" :key="index">
         <img
-          @click="parseFeedItem(index)"
+          @click="parseFeedItem(item)"
           v-if="item['media:content'][0]['$'].url"
           :src="item['media:content'][0]['$'].url"
           :alt="item['media:content'][0]['$'].url"
           class="image-size"
         />
-        <h3 class="item-title" @click="parseFeedItem(index)">
+        <h3 class="item-title" @click="parseFeedItem(item)">
           {{ item.title[0] }}
         </h3>
-        <p class="item-description" @click="parseFeedItem(index)">
+        <p class="item-description" @click="parseFeedItem(item)">
           {{ item.description[0] }}
         </p>
         <p class="item-date">{{ formatDate(item.pubDate[0]) }}</p>
@@ -39,11 +39,11 @@
 
 <script>
 import axios from "axios";
-import Container from "@/components/Container";
+import Container from "@/components/reusable/Container";
 import FeedModal from "@/components/FeedModal";
-import FeedContainer from "@/components/FeedContainer";
-import Button from "@/components/Button";
-import Pulse from "@/components/Pulse";
+import FeedContainer from "@/components/reusable/FeedContainer";
+import Button from "@/components/reusable/Button";
+import Pulse from "@/components/reusable/Pulse";
 export default {
   name: "Feed",
   data() {
@@ -70,9 +70,9 @@ export default {
       let dateObj = new Date(date).toLocaleDateString();
       return dateObj;
     },
-    async parseFeedItem(index) {
+    async parseFeedItem(item) {
       await axios
-        .post(`http://localhost:5005/feed/?index=${index}`)
+        .post(`http://localhost:5005/feed/parse`, { item })
         .then(response => {
           this.isOpen = true;
           this.parsedItem = response.data;
