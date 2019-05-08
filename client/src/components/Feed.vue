@@ -72,8 +72,9 @@ export default {
       });
     },
     formatDate(date) {
-      let dateObj = new Date(date).toLocaleDateString();
-      return dateObj;
+      let dateString = new Date(date).toLocaleDateString();
+      let timeString = new Date(date).toLocaleTimeString();
+      return `${dateString} ${timeString}`;
     },
     async parseFeedItem(item) {
       this.parsedItem = "";

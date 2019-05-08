@@ -21,6 +21,7 @@ export default {};
 
   @media screen and(max-width: 500px) {
     width: 100%;
+    box-shadow: none;
   }
 }
 </style>
