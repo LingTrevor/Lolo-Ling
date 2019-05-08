@@ -18,9 +18,9 @@
           v-html="stripHTML(item.description[0])"
         ></p>
         <strong>
-          <p v-if="item.author">{{ item.author[0] }}</p>
+          <p v-if="item.author">Author: {{ item.author[0] }}</p>
         </strong>
-        <p class="item-date">{{ formatDate(item.pubDate[0]) }}</p>
+        <p class="item-date">Published: {{ formatDate(item.pubDate[0]) }}</p>
       </div>
     </FeedContainer>
     <Pulse v-else></Pulse>
@@ -79,7 +79,6 @@ export default {
       await axios
         .post(`http://localhost:5005/feed/parse`, { item })
         .then(response => {
-          console.log(response);
           this.isOpen = true;
           this.parsedItem = response.data;
           //   console.log(this.parsedItem);
