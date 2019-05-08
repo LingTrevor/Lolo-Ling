@@ -76,6 +76,7 @@ export default {
       return dateObj;
     },
     async parseFeedItem(item) {
+      this.parsedItem = "";
       await axios.post(`/feed/parse`, { item }).then(response => {
         this.isOpen = true;
         this.parsedItem = response.data;
