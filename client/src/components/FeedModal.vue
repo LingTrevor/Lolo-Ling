@@ -4,13 +4,13 @@
       <div class="overlay" @click.self="isOpen = false">
         <div class="modal">
           <div class="modal-header">
-            <slot name="header">Header Content</slot>
+            <slot name="header"></slot>
           </div>
           <div class="modal-image">
-            <slot name="image">Image</slot>
+            <slot name="image"></slot>
           </div>
           <div class="modal-body">
-            <slot name="body">Body</slot>
+            <slot name="body"></slot>
           </div>
           <slot name="close"></slot>
         </div>
@@ -62,12 +62,6 @@ export default {
 
     .modal-image {
       padding: 10px;
-
-      img {
-        width: 200px;
-        height: 200px;
-        object-fit: cover;
-      }
     }
 
     .modal-body {
