@@ -29,7 +29,7 @@ module.exports = {
     const link = req.body.item.link[0];
     await Mercury.parse(link)
       .then(result => {
-        console.log(result);
+        // console.log(result);
         res.status(200).send(result);
       })
       .catch(error => {
