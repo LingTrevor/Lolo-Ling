@@ -38,9 +38,9 @@ module.exports = {
           addMediaField(items);
           const item = items[index];
           const itemLink = item.link[0];
-          console.log(itemLink);
+          // console.log(itemLink);
           Mercury.parse(itemLink).then(result => {
-            console.log(result);
+            // console.log(result);
             res.status(200).send(result);
           });
         });

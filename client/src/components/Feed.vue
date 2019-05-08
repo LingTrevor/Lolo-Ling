@@ -21,6 +21,15 @@
     <Pulse v-else></Pulse>
 
     <FeedModal :isOpen="isOpen">
+      <h1 slot="header">{{ parsedItem.title }}</h1>
+      <img
+        class="modal-image"
+        slot="image"
+        v-if="parsedItem.lead_image_url"
+        :src="parsedItem.lead_image_url"
+        :alt="parsedItem.lead_image_url"
+      />
+      <p slot="body" v-html="parsedItem.content"></p>
       <div slot="close">
         <Button btnTitle="Close" @click.native="isOpen = false"></Button>
       </div>
@@ -62,7 +71,13 @@ export default {
       return dateObj;
     },
     async parseFeedItem(index) {
-      this.isOpen = true;
+      await axios
+        .post(`http://localhost:5005/feed/?index=${index}`)
+        .then(response => {
+          this.isOpen = true;
+          this.parsedItem = response.data;
+          //   console.log(this.parsedItem);
+        });
     }
   },
   created() {
@@ -112,6 +127,17 @@ export default {
   .item-date {
     // padding: 10px;
     margin: 10px 0;
+  }
+}
+
+//Modal Image
+.modal-image {
+  padding: 10px;
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
   }
 }
 </style>
