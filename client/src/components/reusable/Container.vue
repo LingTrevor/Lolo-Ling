@@ -11,5 +11,9 @@
   padding: 20px;
   background-color: $color-container-bg;
   min-height: 100%;
+
+  @media screen and(max-width: 500px) {
+    padding: 5px;
+  }
 }
 </style>

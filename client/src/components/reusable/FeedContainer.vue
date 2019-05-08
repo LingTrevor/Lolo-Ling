@@ -18,5 +18,9 @@ export default {};
   margin: 20px auto;
   padding: 10px;
   box-shadow: 0 1px 15px 1px $color-primary-dark;
+
+  @media screen and(max-width: 500px) {
+    width: 100%;
+  }
 }
 </style>

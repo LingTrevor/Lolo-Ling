@@ -113,7 +113,6 @@ export default {
 
   @media screen and(min-width: 1400px) {
     width: 30%;
-    // padding: 5px;
   }
   @media screen and(max-width: 1000px) {
     width: 100%;
@@ -137,7 +136,6 @@ export default {
   }
 
   .item-date {
-    // padding: 10px;
     margin: 10px 0;
   }
 }

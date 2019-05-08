@@ -54,6 +54,10 @@ export default {
     box-shadow: 0 2px 8px 3px;
     transition: all 0.2s ease-in;
 
+    @media screen and(max-width: 500px) {
+      padding: 5px;
+    }
+
     .modal-header {
       padding: 10px;
       text-align: center;
