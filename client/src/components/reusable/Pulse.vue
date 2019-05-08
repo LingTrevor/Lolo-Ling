@@ -3,7 +3,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import "../scss/_variables.scss";
+@import "../../scss/_variables.scss";
 .pulse-loading {
   margin: 100px auto;
   display: block;

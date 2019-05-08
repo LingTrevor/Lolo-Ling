@@ -5,7 +5,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import "../scss/_variables.scss";
+@import "../../scss/_variables.scss";
 .container {
   width: 100%;
   padding: 20px;

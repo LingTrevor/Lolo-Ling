@@ -9,7 +9,7 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-@import "../scss/_variables.scss";
+@import "../../scss/_variables.scss";
 .feed-container {
   display: flex;
   flex-wrap: wrap;
