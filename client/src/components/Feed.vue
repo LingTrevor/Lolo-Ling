@@ -12,9 +12,14 @@
         <h3 class="item-title" @click="parseFeedItem(item)">
           {{ item.title[0] }}
         </h3>
-        <p class="item-description" @click="parseFeedItem(item)">
-          {{ item.description[0] }}
-        </p>
+        <p
+          class="item-description"
+          @click="parseFeedItem(item)"
+          v-html="stripHTML(item.description[0])"
+        ></p>
+        <strong>
+          <p v-if="item.author">{{ item.author[0] }}</p>
+        </strong>
         <p class="item-date">{{ formatDate(item.pubDate[0]) }}</p>
       </div>
     </FeedContainer>
@@ -74,10 +79,18 @@ export default {
       await axios
         .post(`http://localhost:5005/feed/parse`, { item })
         .then(response => {
+          console.log(response);
           this.isOpen = true;
           this.parsedItem = response.data;
           //   console.log(this.parsedItem);
         });
+    },
+
+    //https://stackoverflow.com/questions/822452/strip-html-from-text-javascript
+    stripHTML(html) {
+      let div = document.createElement("div");
+      div.innerHTML = html;
+      return div.textContent || div.innerText || "";
     }
   },
   created() {

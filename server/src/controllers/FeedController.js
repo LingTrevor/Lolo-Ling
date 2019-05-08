@@ -27,10 +27,9 @@ module.exports = {
   },
   async mercuryParseItem(req, res) {
     const link = req.body.item.link[0];
-    console.log(link);
     await Mercury.parse(link)
       .then(result => {
-        // console.log(result);
+        console.log(result);
         res.status(200).send(result);
       })
       .catch(error => {
